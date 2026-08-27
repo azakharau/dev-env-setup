@@ -1,0 +1,33 @@
+# Copy this file to ~/.config/dev-forge/config.toml and replace the repository
+# URL before running dev-forge.
+configs_repo = "https://github.com/your-user/dotfiles.git"
+configs_path = "~/.local/share/dev-forge/dotfiles"
+
+[[dependencies]]
+name = "git"
+category = "core"
+required = true
+description = "Version control system"
+installers = ["homebrew", "pacman", "apt"]
+
+[[dependencies]]
+name = "ripgrep"
+category = "terminal"
+required = false
+description = "Fast recursive text search"
+check = "command -v rg >/dev/null 2>&1"
+installers = ["homebrew", "pacman", "apt"]
+
+[[configs]]
+name = "shell"
+source = "shell/"
+target = "~/.config/shell"
+description = "Shell configuration directory"
+os = ["macos", "linux"]
+
+[[configs]]
+name = "terminal"
+source = "terminal/"
+target = "~/.config/terminal"
+description = "Terminal emulator configuration"
+os = ["macos"]
